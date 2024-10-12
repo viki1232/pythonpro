@@ -25,7 +25,7 @@ palabras=["hola",
     'puente', 'barco', 'cerveza', 'libro', 'fuego',
     'piedra', 'tren', 'globo', 'luna', 'sol',
     'jardin', 'telefono', 'sombra', 'pajaro', 'tigre']
-
+A=["piedra","papel","tijera"]
 description = '''An example bot to showcase the discord.ext.commands extension
 module.
 
@@ -88,7 +88,8 @@ intents.members = True
 intents.message_content = True
 juegos = {}
 
-
+def elegir_palabra1():
+    return random.choice(A)
   
 bot = commands.Bot(command_prefix='!', description=description, intents=intents)
 logging.basicConfig(level=logging.DEBUG)
@@ -234,5 +235,34 @@ async def mostrar_estado_juego(ctx):
     estado += f"Letras incorrectas: {', '.join(juego.letras_incorrectas)}\n"
     estado += f"Intentos restantes: {juego.intentos}"
     await ctx.send(estado)
-
+@bot.command(name="piedra")
+async def piedra(ctx):
+    elecciondelacompu=elegir_palabra1()
+    await ctx.send(f"la computadora ha elegido:{elecciondelacompu}")
+    if elecciondelacompu=="piedra":
+        await ctx.send(f"empate")
+    elif elecciondelacompu=="tijera":
+        await ctx.send(f"haz ganado")
+    elif elecciondelacompu=="papel":
+        await ctx.send(f"haz perdido")
+@bot.command(name="tijera")
+async def piedra(ctx):
+    elecciondelacompu=elegir_palabra1()
+    await ctx.send(f"la computadora ha elegido:{elecciondelacompu}")
+    if elecciondelacompu=="piedra":
+        await ctx.send(f"haz perdido")
+    elif elecciondelacompu=="tijera":
+        await ctx.send(f"empate")
+    elif elecciondelacompu=="papel":
+        await ctx.send(f"haz ganado")
+@bot.command(name="papel")
+async def piedra(ctx):
+    elecciondelacompu=elegir_palabra1()
+    await ctx.send(f"la computadora ha elegido:{elecciondelacompu}")
+    if elecciondelacompu=="piedra":
+        await ctx.send(f"haz ganado")
+    elif elecciondelacompu=="tijera":
+        await ctx.send(f"haz perdido")
+    elif elecciondelacompu=="papel":
+        await ctx.send(f"empate")
 bot.run('MTI4OTYyODEyOTYzMTE0MjA1MA.GFIx9x.TpElXy_6863My1_0Dnei7p1OfayjU0M2EMEQ6w')
