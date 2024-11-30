@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi página</title>
+    <link rel="stylesheet" href="se.css">
+</head>
+<body>
+    <h1>soy victoria.</h1>
+    <p>soy estudiante de koodland</p>
+    <h2>tengo 15 años</h2>
+    <h2>me encanta la programacion</h2>
+    <h2>ya no se que poner xd</h2>
+    
+    <ul>
+        <!-- Primer botón -->
+        <li>
+            <button onclick="mostrarMensaje('sinLuz')">no tengo luz</button>
+            <div id="sinLuz" class="mensaje-overlay">
+                <h1>¡No hay electricidad! 💡</h1>
+                <p>Parece que estamos teniendo problemas con la luz...</p>
+                <button class="boton-volver" onclick="ocultarMensaje('sinLuz')">Volver</button>
+            </div>
+        </li>
+        <!-- Segundo botón con diferente mensaje -->
+        <li>
+            <button onclick="mostrarMensaje('mensaje2')">aaaaaa</button>
+            <div id="mensaje2" class="mensaje-overlay">
+                <h1>¡Otro mensaje! 🎉</h1>
+                <p>Este es otro mensaje diferente</p>
+                <button class="boton-volver" onclick="ocultarMensaje('mensaje2')">Volver</button>
+            </div>
+        </li>
+        <!-- Tercer botón -->
+        <li>
+            <button onclick="mostrarMensaje('mensaje3')">tercer mensaje</button>
+            <div id="mensaje3" class="mensaje-overlay">
+                <h1>¡Tercer mensaje! 🌟</h1>
+                <p>Este es el tercer mensaje diferente</p>
+                <button class="boton-volver" onclick="ocultarMensaje('mensaje3')">Volver</button>
+            </div>
+        </li>
+    </ul>
+
+    <script>
+        function mostrarMensaje(id) {
+            document.getElementById(id).classList.add('mostrar');
+        }
+
+        function ocultarMensaje(id) {
+            document.getElementById(id).classList.remove('mostrar');
+        }
+    </script>
+</body>
+</html>
