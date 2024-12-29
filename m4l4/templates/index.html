@@ -90,7 +90,7 @@
                 height="150"
               />
               <span class="skill__info">Juego </span>
-              <a href="https://github.com/viki1232/proyectoprogra.git">
+              <a href="https://github.com/viki1232/juego.git">
                 <input class="skill__button" type="button" name="button_python" value="SHOW PROJECT">
               </a>
             </li>
@@ -128,8 +128,8 @@
                 width="150"
                 height="150"
               />
-              <span class="skill__info">Bases de datos</span>
-              <a href="https://github.com/viki1232/proyectoprogra.git">
+              <span class="skill__info">block de notas </span>
+              <a href="https://github.com/viki1232/pythonpro/tree/main/m4l2">
                 <input class="skill__button" type="button" name="button_python" value="SHOW PROJECT">
               </a>
             </li>
@@ -147,16 +147,22 @@
       <!-- Formulario de contacto -->
       <section class="main__feedback feedback" id="feedback">
         <h2 class="feedback__title">FEEDBACK</h2>
-        <form action="" method="POST" class="feedback__form form">
-          <label for="email">
-            <input type="email" class="form__input" name="email" id="email" placeholder="E-mail" required>
-          </label>
-          <label for="text">
-            <textarea name="text" class="form__input" id="text" cols="70" rows="10" required placeholder="Comment"></textarea>
-          </label>
-          <button class="form__button" type="submit">SEND</button>
+
+        {% if message %}
+        <p style="color: green; font-weight: bold;">{{ message }}</p>
+        {% endif %}
+        <form action="/" method="POST" class="feedback__form form">
+            <label for="email">
+                <input type="email" class="form__input" name="email" id="email" placeholder="E-mail" required>
+            </label>
+            <label for="text">
+                <textarea name="text" class="form__input" id="text" cols="70" rows="10" required placeholder="Comment"></textarea>
+            </label>
+            <button class="form__button" type="submit">SEND</button>
+
+
         </form>
-      </section>
+    </section>
     </main>
     <!-- Pie de página con enlaces a redes sociales -->
     <footer>

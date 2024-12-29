@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <section class="main__feedback feedback" id="feedback">
+        <h2 class="feedback__title">FEEDBACK</h2>
+        
+        <!-- Mostrar mensaje de éxito o error -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        
+        <!-- Formulario de feedback -->
+        <form action="/send_feedback" method="POST" class="feedback__form form">
+            <label for="email">
+                <input type="email" class="form__input" name="email" id="email" placeholder="E-mail" required>
+            </label>
+            <label for="text">
+                <textarea name="text" class="form__input" id="text" cols="70" rows="10" required placeholder="Comment"></textarea>
+            </label>
+            <button class="form__button" type="submit">SEND</button>
+        </form>
+    </section>
+</body>
+</html>
